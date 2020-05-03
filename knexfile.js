@@ -15,6 +15,9 @@ module.exports = {
     migrations: {
       directory: './src/database/migrations',
       tableName: 'migrations'
+    },
+    seeds: {
+      directory: './src/database/seeds',
     }
   }
 };
