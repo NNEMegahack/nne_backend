@@ -51,12 +51,17 @@ module.exports = {
             next(error)
         }
     },
-    async barcode(req, res){
-        const { code } = req.params
-        const api_key = process.env.API_KEY
-        const url = `https://api.barcodelookup.com/v2/products?barcode=${code}&formatted=y&key=` + api_key
-        const response = await requestify.get(url)
+    async barcode(req, res, next){
+        try{
+            const { code } = req.params
+            const api_key = process.env.API_KEY
+            const url = `https://api.barcodelookup.com/v2/products?barcode=${code}&formatted=y&key=` + api_key
+            const response = await requestify.get(url)
         
-        return res.json(JSON.parse(response.body))
+            return res.json(JSON.parse(response.body))
+        }
+        catch (error){
+            next(error)
+        }
     }
 }
