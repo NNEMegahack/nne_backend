@@ -53,16 +53,10 @@ module.exports = {
     },
     async barcode(req, res){
         const { code } = req.params
-        console.log(code)
-        //const proxyurl = "https://cors-anywhere.herokuapp.com/"; // Use a proxy to avoid CORS error
-        const api_key = process.env.API_KEY;
-        const url = `https://api.barcodelookup.com/v2/products?barcode=${code}&formatted=y&key=` + api_key;
-        requestify.get(url).then(function(response) {
-            // Get the response body (JSON parsed - JSON response or jQuery object in case of XML response)
-            console.log(response.getBody())
-
-            // Get the response raw body
-            console.log(response.body)
-        })
+        const api_key = process.env.API_KEY
+        const url = `https://api.barcodelookup.com/v2/products?barcode=${code}&formatted=y&key=` + api_key
+        const response = await requestify.get(url)
+        
+        return res.json(JSON.parse(response.body))
     }
 }
