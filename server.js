@@ -7,5 +7,5 @@ app.listen(port, (err) => {
     throw err;
   }
 
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${port}`);
 });
