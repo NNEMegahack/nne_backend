@@ -4,10 +4,15 @@ require('dotenv').config()
 
 
 module.exports = {
-    async index(req,res) {
-        const results = await knex('form')
+    async index(req, res, next) {
+        try{
+            const results = await knex('form')
         
-        return res.json(results)
+            return res.json(results)
+        }catch (error){
+            next(error)
+        }
+
     },
     async create(req,res, next) {
 
