@@ -24,7 +24,7 @@ module.exports = {
             const { publisher } = req.body
             const { description } = req.body
             const { images } = req.body
-            const { stores } = req.body
+            const { price } = req.body
             const { brand } = req.body
             const { title } = req.body
             const { author } = req.body
@@ -47,7 +47,7 @@ module.exports = {
                 publisher,
                 description,
                 images,
-                stores,
+                price,
                 brand,
                 title,
                 author,
