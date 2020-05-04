@@ -28,22 +28,7 @@ exports.seed = function(knex) {
             Mucho más en una pequeña caja: CPU Quad-core cortex-a53, 2GB RAM, 8GB ROM, Bluetooth control remoto Voz, H.265 aplicaciones de gran pantalla etc."
           ,
           "images": "https://images.barcodelookup.com/4426/44262204-1.jpg",
-          "stores": [
-            {
-              "store_name": "eTuyo ES",
-              "store_price": "70.35",
-              "product_url": "https://www.etuyo.com/product.php?productid=51991&amp;sl=es",
-              "currency_code": "USD",
-              "currency_symbol": "$"
-            },
-            {
-              "store_name": "Rakuten Deutschland GmbH",
-              "store_price": "73.85",
-              "product_url": "https://www.rakuten.de/produkt/xiaomi-mi-box-streaming-client-schwarz-3-generation-2291504195",
-              "currency_code": "EUR",
-              "currency_symbol": "€"
-            }
-          ],
+          "price": 73.85,
         },
         { "barcode_number": "9788577990481",
           "barcode_type": "ISBN",
@@ -54,15 +39,7 @@ exports.seed = function(knex) {
           "publisher": "Bestbolso",
           "description": "Uma história sobre morte e intriga na alta costura.Tudo começa quando Neeve Kearny, filha do ex-comissário de polícia Myles e dona de uma butique chique na Madison Avenue, tenta descobrir quem é o assassino da famosa escritora Ethel Lambston, uma das melhores clientes de Neeve. Ethel aparece com a garganta cortada pouco tempo antes de lançar um livro de fofocas sobre o mundo da moda. Na lista dos suspeitos estão o sobrinho de Ethel, o ex-marido e um conhecido estilista. A vida de Neeve vira então um tormento - o assassino passa a querer eliminá-la também.",
           "images": "https://images.barcodelookup.com/2550/25503000-1.jpg",
-          "stores": [
-            {
-              "store_name": "ThriftBooks.com",
-              "store_price": "77.39",
-              "product_url": "https://www.thriftbooks.com/w/bridget-joness-diary_helen-fielding/281400/#isbn=8577990486",
-              "currency_code": "USD",
-              "currency_symbol": "$"
-            }
-          ],
+          "price": 77.39,
       }
       ]);
     });

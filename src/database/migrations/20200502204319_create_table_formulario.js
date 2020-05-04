@@ -2,17 +2,14 @@ exports.up = async knex => knex.schema.createTable('products', table => {
     // Obrigatorios
     table.increments('id')
     table.varchar('barcode_number', 20).unique().notNullable()
-    table.varchar('barcode_type', 10).notNullable()
-    table.varchar('product_name', 100).notNullable()
+    table.varchar('product_name', 100).notNullable()    
     table.varchar('category', 100).notNullable()
-    
-
     table.text('description').notNullable()
-    table.text('images').notNullable()
-    
-    table.specificType('stores','text[]').notNullable()
+    table.float('price').notNullable()
 
     // Optativos - outros 
+    table.text('images').nullable()
+    table.varchar('barcode_type', 10).nullable()
     table.varchar('publisher', 50).nullable()
     table.varchar('brand', 30).nullable()
 
