@@ -1,9 +1,42 @@
-exports.up = async knex => knex.schema.createTable('form', table => {
+exports.up = async knex => knex.schema.createTable('products', table => {
+    // Obrigatorios
     table.increments('id')
-    table.text('username').unique().notNullable()
+    table.varchar('barcode_number', 20).unique().notNullable()
+    table.varchar('barcode_type', 10).notNullable()
+    table.varchar('product_name', 100).notNullable()
+    table.varchar('category', 100).notNullable()
+    
 
+    table.text('description').notNullable()
+    table.text('images').notNullable()
+    
+    table.specificType('stores','text[]').notNullable()
+
+    // Optativos - outros 
+    table.varchar('publisher', 50).nullable()
+    table.varchar('brand', 30).nullable()
+
+    // Optativos - Livros
+    table.text('title').nullable();
+    table.text('author').nullable();
+
+
+    // Optativos - Eletronicos
+    table.varchar('mpnm', 20).nullable();
+    table.varchar('model', 20).nullable();
+    table.varchar('asin', 20).nullable();
+    table.varchar('manufacturer', 50).nullable();
+    table.varchar('label', 50).nullable();
+    table.float('length').nullable();
+    table.float('width').nullable();
+    table.float('height').nullable();
+    table.float('weight').nullable();
+    table.text('features').nullable();
+
+
+    // Trace
     table.timestamp('created_at').defaultTo(knex.fn.now())
     table.timestamp('updated_at').defaultTo(knex.fn.now())
   })
 
-exports.down = async knex => knex.schema.dropTable('users')
+exports.down = async knex => knex.schema.dropTable('products')

@@ -1,0 +1,8 @@
+CAMPOS NOS DOIS
+barcode_number, barcode_type, product_name, category, brand, publisher, description, images, stores
+
+APENAS NOS LIVROS
+title, author
+
+APENAS NA TECNOLOGIA
+mpnm, model, asin, manufacturer, label, length, width, height, weight, features

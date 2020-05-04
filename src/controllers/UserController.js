@@ -6,7 +6,7 @@ require('dotenv').config()
 module.exports = {
     async index(req, res, next) {
         try{
-            const results = await knex('form')
+            const results = await knex('products')
         
             return res.json(results)
         }catch (error){
@@ -17,9 +17,50 @@ module.exports = {
     async create(req,res, next) {
 
         try{
-            const { username } = req.body
-            await knex('form').insert({
-                username
+            const { barcode_number } = req.body
+            const { barcode_type } = req.body
+            const { product_name } = req.body
+            const { category } = req.body
+            const { publisher } = req.body
+            const { description } = req.body
+            const { images } = req.body
+            const { stores } = req.body
+            const { brand } = req.body
+            const { title } = req.body
+            const { author } = req.body
+            const { mpnm } = req.body
+            const { model } = req.body
+            const { asin } = req.body
+            const { manufacturer } = req.body
+            const { label } = req.body
+            const { length } = req.body
+            const { width } = req.body
+            const { height } = req.body
+            const { weight } = req.body
+            const { features } = req.body        
+
+            await knex('products').insert({
+                barcode_number,
+                barcode_type,
+                product_name,
+                category,
+                publisher,
+                description,
+                images,
+                stores,
+                brand,
+                title,
+                author,
+                mpnm,
+                model,
+                asin,
+                manufacturer,
+                label,
+                length,
+                width,
+                height,
+                weight,
+                features,
             })
             
             return res.status(201).send()
@@ -29,11 +70,12 @@ module.exports = {
     },
     async update(req, res, next){
         try{
-            const { username } = req.body
+            //const { username } = req.body
             const { id } = req.params
+            //const data = req['body']
 
-            await knex('form')
-            .update( { username })
+            await knex('products')
+            .update( req['body'] )
             .where({ id })
 
             return res.send()
@@ -46,7 +88,7 @@ module.exports = {
         try{
             const { id } = req.params
 
-            await knex('form')
+            await knex('products')
             .where({ id })
             .del()
 
